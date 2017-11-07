@@ -7,6 +7,8 @@
         float _previousHealth = 100;
         public Elephant() : base(MortalityPercentage)
         {
+            Type = "Elephant";
+            Health = 100;
         }
         
         public override void FeedMe(int modifier)

@@ -17,23 +17,23 @@ namespace ZooSim.App
 
         static List<Animal> animals = new List<Animal>
         {
-            new Elephant { Name = "Nellie", Type = "Elephant", Health = 100 },
-            new Elephant { Name = "Dumbo", Type = "Elephant", Health = 100 },
-            new Elephant { Name = "Trumpy", Type = "Elephant", Health = 100 },
-            new Elephant { Name = "Babar", Type = "Elephant", Health = 100 },
-            new Elephant { Name = "Elmer", Type = "Elephant", Health = 100 },
-
-            new Giraffe { Name = "Gerry", Type = "Giraffe", Health = 100 },
-            new Giraffe { Name = "Lofty", Type = "Giraffe", Health = 100 },
-            new Giraffe { Name = "Leggy", Type = "Giraffe", Health = 100 },
-            new Giraffe { Name = "Necky", Type = "Giraffe", Health = 100 },
-            new Giraffe { Name = "Geoffrey", Type = "Giraffe", Health = 100 },
-
-            new Monkey { Name = "Cheeta", Type = "Monkey", Health = 100 },
-            new Monkey { Name = "Abu", Type = "Monkey", Health = 100 },
-            new Monkey { Name = "Rafiki", Type = "Monkey", Health = 100 },
-            new Monkey { Name = "George", Type = "Monkey", Health = 100 },
-            new Monkey { Name = "Albert", Type = "Monkey", Health = 100 }
+            new Elephant { Name = "Nellie" },
+            new Elephant { Name = "Dumbo" },
+            new Elephant { Name = "Trumpy" },
+            new Elephant { Name = "Babar" },
+            new Elephant { Name = "Elmer" },
+                                            
+            new Giraffe { Name = "Gerry" },
+            new Giraffe { Name = "Lofty" },
+            new Giraffe { Name = "Leggy" },
+            new Giraffe { Name = "Necky" },
+            new Giraffe { Name = "Geoffrey" },
+                                            
+            new Monkey { Name = "Cheeta" },
+            new Monkey { Name = "Abu" },
+            new Monkey { Name = "Rafiki" },
+            new Monkey { Name = "George" },
+            new Monkey { Name = "Albert" }
         };
 
         static Timer zooTimer = new Timer();
@@ -68,11 +68,13 @@ namespace ZooSim.App
 
             hourCounter += 1;
             Console.WriteLine("Current Zoo time is " + DateTime.Now.AddHours(hourCounter).ToShortTimeString());
+            Console.WriteLine("");
 
             if (allDead == true)
             {
                 zooTimer.Stop();
                 Console.WriteLine("Sadly all the animals are dead, the zoo is now closed");
+                Console.WriteLine("Press any key to Exit...");
             }
         }
 
