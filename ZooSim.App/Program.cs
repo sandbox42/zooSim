@@ -11,7 +11,6 @@ namespace ZooSim.App
     {
         private static int hourCounter;
         static CultureInfo cult = new CultureInfo("en-GB");
-        static bool allDead = true;
 
         // Create a List and add the animals
 
@@ -40,7 +39,6 @@ namespace ZooSim.App
 
         static public void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
         {
-            allDead = true;
 
             // Retard the health for each animal in the list and then check for life
             for (int i = animals.Count - 1; i >= 0; i--)
@@ -48,7 +46,6 @@ namespace ZooSim.App
 
                 if (animals[i].IsAlive())
                 {
-                    allDead = false;
 
                     animals[i].Retard(GetRandom(HealthAction.Reduce));
 
@@ -70,7 +67,7 @@ namespace ZooSim.App
             Console.WriteLine("Current Zoo time is " + DateTime.Now.AddHours(hourCounter).ToShortTimeString());
             Console.WriteLine("");
 
-            if (allDead == true)
+            if (animals.Count == 0)
             {
                 zooTimer.Stop();
                 Console.WriteLine("Sadly all the animals are dead, the zoo is now closed");
@@ -113,7 +110,7 @@ namespace ZooSim.App
                     default:
                         break;
                 }
-            } while (allDead == false);
+            } while (animals.Count != 0);
 
             return;       
 
