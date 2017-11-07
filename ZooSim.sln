@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZooSim.App", "ZooSim.App\Zo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZooSim.Common", "ZooSim.Common\ZooSim.Common.csproj", "{4755BBD1-1627-41D5-AF46-C8E44161FAD5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZooSim.CommonTests", "ZooSim.CommonTests\ZooSim.CommonTests.csproj", "{47296637-5347-476A-80C5-E5D74EC91FD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZooSim.AppTests", "ZooSim.AppTests\ZooSim.AppTests.csproj", "{B8006F7F-CA32-4B6E-8EEF-F70DCB45466E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{4755BBD1-1627-41D5-AF46-C8E44161FAD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4755BBD1-1627-41D5-AF46-C8E44161FAD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4755BBD1-1627-41D5-AF46-C8E44161FAD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47296637-5347-476A-80C5-E5D74EC91FD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47296637-5347-476A-80C5-E5D74EC91FD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47296637-5347-476A-80C5-E5D74EC91FD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47296637-5347-476A-80C5-E5D74EC91FD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8006F7F-CA32-4B6E-8EEF-F70DCB45466E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8006F7F-CA32-4B6E-8EEF-F70DCB45466E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8006F7F-CA32-4B6E-8EEF-F70DCB45466E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8006F7F-CA32-4B6E-8EEF-F70DCB45466E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
