@@ -48,7 +48,7 @@ namespace ZooSim
 
         public virtual bool IsAlive ()
         {
-            return  Health < Mortality && _previousHealth < Mortality ? false : true;
+            return  Health < Mortality ? false : true;
         }
 
     }

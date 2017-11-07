@@ -40,20 +40,21 @@ namespace ZooSim.App
 
         static public void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
         {
-            // Retard the health for each animal in the list and then check for life
-            foreach (var animal in animals)
-            {
-                allDead = true;
+            allDead = true;
 
-                if (animal.IsAlive())
+            // Retard the health for each animal in the list and then check for life
+            for (int i = animals.Count-1; i >=0; i--)
+            {
+                
+                if (animals[i].IsAlive())
                 {
                     allDead = false;
 
-                    animal.Retard(GetRandom(HealthAction.Reduce));
+                    animals[i].Retard(GetRandom(HealthAction.Reduce));
 
-                    Console.Write(animal.Name + " the " + animal.Type + " has " + (animal.Health / 100).ToString("P02", cult) + " health, ");
+                    Console.Write(animals[i].Name + " the " + animals[i].Type + " has " + (animals[i].Health / 100).ToString("P02", cult) + " health, ");
 
-                    Console.WriteLine(animal.Name + " is " + (animal.IsAlive() ? "alive" : "dead"));
+                    Console.WriteLine(animals[i].Name + " is " + (animals[i].IsAlive() ? "alive" : "dead"));
 
                 }
             }
@@ -63,8 +64,12 @@ namespace ZooSim.App
 
             if (allDead == true)
             {
-                Console.WriteLine("Sadly all the animals are dead, the zoo is now closed");
                 zooTimer.Stop();
+                Console.WriteLine("Sadly all the animals are dead, the zoo is now closed");
+                foreach (var animal in animals)
+                {
+                    Console.WriteLine(animal.Name + " the " + animal.Type + " has " + (animal.Health / 100).ToString("P02", cult) + " health, ");
+                }                
             }
         }
 
