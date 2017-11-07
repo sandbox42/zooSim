@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ZooSim.App
+﻿namespace ZooSim.App
 {
     public class Elephant : Animal
     {
@@ -11,23 +9,6 @@ namespace ZooSim.App
         {
         }
         
-
-
-        //public override void FeedMe(int modifier)
-        //{
-        //    base.FeedMe(modifier);
-        //    base.IsAlive();
-
-        //}
-
-
-        //public override void Retard(int modifier)
-        //{
-        //    base.Retard(modifier);
-        //    base.IsAlive();
-
-        //}
-
         public override void FeedMe(int modifier)
         {
             if (Health < 100)

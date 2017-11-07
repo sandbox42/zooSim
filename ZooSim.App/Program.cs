@@ -43,9 +43,9 @@ namespace ZooSim.App
             allDead = true;
 
             // Retard the health for each animal in the list and then check for life
-            for (int i = animals.Count-1; i >=0; i--)
+            for (int i = animals.Count - 1; i >= 0; i--)
             {
-                
+
                 if (animals[i].IsAlive())
                 {
                     allDead = false;
@@ -54,8 +54,15 @@ namespace ZooSim.App
 
                     Console.Write(animals[i].Name + " the " + animals[i].Type + " has " + (animals[i].Health / 100).ToString("P02", cult) + " health, ");
 
-                    Console.WriteLine(animals[i].Name + " is " + (animals[i].IsAlive() ? "alive" : "dead"));
-
+                    if (animals[i].IsAlive())
+                    {
+                        Console.WriteLine(animals[i].Name + " is alive");
+                    }
+                    else
+                    {
+                        Console.WriteLine(animals[i].Name + " is dead");
+                        animals.RemoveAt(i);
+                    }
                 }
             }
 
@@ -66,10 +73,6 @@ namespace ZooSim.App
             {
                 zooTimer.Stop();
                 Console.WriteLine("Sadly all the animals are dead, the zoo is now closed");
-                foreach (var animal in animals)
-                {
-                    Console.WriteLine(animal.Name + " the " + animal.Type + " has " + (animal.Health / 100).ToString("P02", cult) + " health, ");
-                }                
             }
         }
 
