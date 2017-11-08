@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace ZooSim.App
+namespace ZooSim.Domain
 {
     public class Elephant : Animal
     {
-        private const float MortalityPercentage = 70;
-        float _newhealth = 0f;
-        float _previousHealth = 100f;
+        private const float MortalityPercentage = 70f;
+        private float _newhealth = 0f;
+        private float _previousHealth = 100f;
         public Elephant() : base(MortalityPercentage)
         {
             Type = "Elephant";
@@ -19,7 +19,7 @@ namespace ZooSim.App
             {
                 _previousHealth = Health;
 
-                //calculate health after feed
+                // calculate health after feed
                 _newhealth = Health + (Health * modifier / 100f);
 
                 // assign derived health rating which must not exceed 100 percent
@@ -34,7 +34,7 @@ namespace ZooSim.App
             {
                 _previousHealth = Health;
 
-                // recalculate health
+                // calculate reduced health
                 _newhealth = Health - (Health * modifier / 100f);
 
                 // assign derived health rating - zero is the minimum

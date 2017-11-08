@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ZooSim.Domain;
 
 namespace ZooSim.App.Tests
 {
@@ -10,8 +11,8 @@ namespace ZooSim.App.Tests
         {
             // Arrange
             var ellie = new Elephant();
-            ellie.Health = 50;
-            float expected = 55;
+            ellie.Health = 50f;
+            float expected = 55f;
             float actual;
 
             // Act
@@ -27,8 +28,8 @@ namespace ZooSim.App.Tests
         {
             // Arrange
             var ellie = new Elephant();
-            ellie.Health = 50;
-            float expected = 45;
+            ellie.Health = 50f;
+            float expected = 45f;
             float actual;
 
             // Act

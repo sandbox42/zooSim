@@ -1,8 +1,8 @@
-﻿namespace ZooSim
+﻿namespace ZooSim.Domain
 {
     public class Monkey : Animal
     {
-        private const float MortalityPercentage = 30;
+        private const float MortalityPercentage = 30f;
         public Monkey() : base(MortalityPercentage)
         {
             Type = "Monkey";

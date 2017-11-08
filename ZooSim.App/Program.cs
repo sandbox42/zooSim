@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Timers;
 using ZooSim.Common;
+using ZooSim.Domain;
 using static ZooSim.Common.RandomNumber;
 
 namespace ZooSim.App
@@ -10,11 +11,10 @@ namespace ZooSim.App
     class Program
     {
         private static int hourCounter;
-        static CultureInfo cult = new CultureInfo("en-GB");
+        private static CultureInfo cult = new CultureInfo("en-GB");
 
-        // Create a List and add the animals
-
-        static List<Animal> animals = new List<Animal>
+        // Create a List and add all the animals
+        private static List<Animal> animals = new List<Animal>
         {
             new Elephant { Name = "Nellie" },
             new Elephant { Name = "Dumbo" },
@@ -35,12 +35,55 @@ namespace ZooSim.App
             new Monkey { Name = "Albert" }
         };
 
-        static Timer zooTimer = new Timer();
+        private static Timer zooTimer = new Timer();
 
-        static public void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
+
+        private static void Main(string[] args)
+        {
+            //start the clock
+            zooTimer.Elapsed += OnTimedEvent;
+            zooTimer.Interval = 5000;
+            zooTimer.Enabled = true;
+
+            // run the main loop
+            do
+            {
+                // iterate while no keys are pressed
+                while (!Console.KeyAvailable)
+                {
+                    // do nothing - just wait
+                }
+
+                // key now pressed - which was it?
+                var keyPressed = Console.ReadKey(true);
+
+                switch (keyPressed.Key)
+                {
+                    case ConsoleKey.F:
+                        Console.WriteLine("Feeding animals...");
+                        // Boost the health for each animal in the list.
+                        foreach (var animal in animals)
+                        {
+                            animal.FeedMe(GetRandom(HealthAction.Boost));
+                        }
+                        break;
+
+                    default:
+                        break;
+                }
+            } while (animals.Count != 0);
+
+            return;       
+
+        }
+
+
+
+
+        private static void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
         {
 
-            // Retard the health for each animal in the list and then check for life
+            // Reduce the health for each animal in the list
             for (int i = animals.Count - 1; i >= 0; i--)
             {
 
@@ -67,55 +110,13 @@ namespace ZooSim.App
             Console.WriteLine("Current Zoo time is " + DateTime.Now.AddHours(hourCounter).ToShortTimeString());
             Console.WriteLine("");
 
+            // all animals removed from list. End the cycle.
             if (animals.Count == 0)
             {
                 zooTimer.Stop();
                 Console.WriteLine("Sadly all the animals are dead, the zoo is now closed");
                 Console.WriteLine("Press any key to Exit...");
             }
-        }
-
-
-
-        static void Main(string[] args)
-        {
-
-            //start the clock
-            
-            //zooTimer.Elapsed += delegate { OnTimedEvent(); };
-            zooTimer.Elapsed += OnTimedEvent;
-            zooTimer.Interval = 5000;
-            zooTimer.Enabled = true;
-
-            // run the main loop
-            do
-            {
-                // iterate while no keys are pressed
-                while (!Console.KeyAvailable)
-                {
-                    // do nothing
-                }
-
-                // key now pressed - which was it?
-                var keyPressed = Console.ReadKey(true);
-
-                switch (keyPressed.Key)
-                {
-                    case ConsoleKey.F:
-                        Console.WriteLine("Feeding animals...");
-                        foreach (var animal in animals)
-                        {
-                            animal.FeedMe(GetRandom(HealthAction.Boost));
-                        }
-                        break;
-
-                    default:
-                        break;
-                }
-            } while (animals.Count != 0);
-
-            return;       
-
         }
 
     }

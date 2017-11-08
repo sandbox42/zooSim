@@ -55,9 +55,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ZooSim.App\ZooSim.App.csproj">
-      <Project>{22EEBDD6-D27C-4B07-9DA1-684131C30A1A}</Project>
-      <Name>ZooSim.App</Name>
+    <ProjectReference Include="..\ZooSim.Domain\ZooSim.Domain.csproj">
+      <Project>{5ec64c30-2e67-481f-8918-728801f3eea9}</Project>
+      <Name>ZooSim.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

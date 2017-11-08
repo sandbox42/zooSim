@@ -1,7 +1,7 @@
 ﻿
 using System;
 
-namespace ZooSim
+namespace ZooSim.Domain
 {
     public abstract class Animal : IAnimal
     {
@@ -10,9 +10,9 @@ namespace ZooSim
         float _previousHealth = 0f;
         protected float Mortality = 0f;
 
-        internal float Health { get; set; }
-        internal string Name { get; set; }
-        internal string Type { get; set; }
+        public float Health { get; set; }
+        public string Name { get; set; }
+        public string Type { get; set; }
         
         public Animal(float mortality)
         {
@@ -23,8 +23,8 @@ namespace ZooSim
         {
             if (Health < 100f)
             {
+                // recalculate the health
                 _newhealth = Health + (Health * modifier / 100f);
-
 
                 // assign derived health rating which must not exceed 100 percent
                 Health = Math.Min(_newhealth, 100f);
@@ -35,10 +35,10 @@ namespace ZooSim
         {
             if (Health > 0f)
             {
-                // recalculate health
+                // recalculate the health
                 _newhealth = Health - (Health * modifier / 100);
 
-                // assign derived health rating - zero is the minimum
+                // assign the derived health rating - zero is the minimum
                 Health = Math.Max(_newhealth, 0f);
 
             }
