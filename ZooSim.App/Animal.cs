@@ -3,27 +3,27 @@ using System;
 
 namespace ZooSim
 {
-    public abstract class Animal
+    public abstract class Animal : IAnimal
     {
 
-        float _newhealth = 0;
-        float _previousHealth = 0;
+        float _newhealth = 0f;
+        float _previousHealth = 0f;
+        protected float Mortality = 0f;
 
-        public float Health { get; set; }
-        public string Name { get; set; }
-        public string Type { get; set; }
-        public int Mortality { get; set; }
-
-        public Animal(int mortality)
+        internal float Health { get; set; }
+        internal string Name { get; set; }
+        internal string Type { get; set; }
+        
+        public Animal(float mortality)
         {
             Mortality = mortality;
         }
 
         public virtual void FeedMe(int modifier)
         {
-            if (Health < 100)
+            if (Health < 100f)
             {
-                _newhealth = Health + (Health * modifier / 100);
+                _newhealth = Health + (Health * modifier / 100f);
 
 
                 // assign derived health rating which must not exceed 100 percent
@@ -33,7 +33,7 @@ namespace ZooSim
         }
         public virtual void Retard(int modifier)
         {
-            if (Health > 0)
+            if (Health > 0f)
             {
                 // recalculate health
                 _newhealth = Health - (Health * modifier / 100);

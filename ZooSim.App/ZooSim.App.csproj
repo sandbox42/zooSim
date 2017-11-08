@@ -49,6 +49,7 @@
     <Compile Include="Animal.cs" />
     <Compile Include="Elephant.cs" />
     <Compile Include="Giraffe.cs" />
+    <Compile Include="IAnimal.cs" />
     <Compile Include="Monkey.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

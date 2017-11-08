@@ -1,29 +1,31 @@
-﻿namespace ZooSim.App
+﻿using System;
+
+namespace ZooSim.App
 {
     public class Elephant : Animal
     {
-        private const int MortalityPercentage = 70;
-        float _newhealth = 0;
-        float _previousHealth = 100;
+        private const float MortalityPercentage = 70;
+        float _newhealth = 0f;
+        float _previousHealth = 100f;
         public Elephant() : base(MortalityPercentage)
         {
             Type = "Elephant";
-            Health = 100;
+            Health = 100f;
         }
         
         public override void FeedMe(int modifier)
         {
-            if (Health < 100)
+            if (Health < 100f)
             {
                 _previousHealth = Health;
 
                 //calculate health after feed
-                _newhealth = Health + (Health * modifier / 100);
+                _newhealth = Health + (Health * modifier / 100f);
 
                 // assign derived health rating which must not exceed 100 percent
-                Health = _newhealth > 100 ? 100 : _newhealth;
+                Health = Math.Min(_newhealth, 100f);
 
-                
+
             }
         }
         public override void Retard(int modifier)
@@ -33,12 +35,12 @@
                 _previousHealth = Health;
 
                 // recalculate health
-                _newhealth = Health - (Health * modifier / 100);
+                _newhealth = Health - (Health * modifier / 100f);
 
                 // assign derived health rating - zero is the minimum
-                Health = _newhealth < 0 ? 0 : _newhealth;
+                Health = Math.Max(_newhealth, 0f);
 
-                
+
             }
         }
 

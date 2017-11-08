@@ -2,11 +2,11 @@
 {
     public class Giraffe : Animal
     {
-        private const int MortalityPercentage = 50;
+        private const float MortalityPercentage = 50;
         public Giraffe() : base(MortalityPercentage)
         {
             Type = "Giraffe";
-            Health = 100;
+            Health = 100f;
         }
 
     }
